@@ -6,12 +6,12 @@ let handler = async (m, { conn, text }) => {
     user.afk = + new Date
     user.afkReason = text
     conn.reply(m.chat, `
-\t\t\t\t *「 ⚠️ حاله الاخفاء ⚠️ 」*
+\t\t\t\t *「 ⚠️ حالة الاختفاء ⚠️ 」*
  
 *► سوف تكون متوقفًا عن العمل حتى تقوم بإرسال رسالة.*
 
-👤 *المستخدم:* @${m.sender.split`@`[0]} 
-👀 *السبب:* ${text ? ': ' + text : ''}
+ *المستخدم:* @${m.sender.split`@`[0]} 
+ *السبب:* ${text ? ': ' + text : ''}
   `, m, { mentions: [m.sender]})
 }
 handler.help = ['afk *<razón>*']
