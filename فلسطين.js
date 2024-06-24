@@ -25,6 +25,6 @@ let handler = async (m, { conn }) => {
 
 handler.help = ['Palestine']
 handler.tags = ['Palestine']
-handler.command = ['بروفايلي','فلسطين']
+handler.command = ['فلسطين']
 
 export default handler
