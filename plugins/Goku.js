@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { text, conn, usedPrefix, command }) => {
   if (!text && !(m.quoted && m.quoted.text)) {
-    throw `*هـذا هـو chatgpt اكـتب سـؤالـك وسـيرد عـليك*\nمـثال:\n*.غوكو اريـد بعـض النـصائح لـعيش حيـاه سـعيده*\n\n*.غوكو كـيف ابـدأ فـي مـجال الـبرمجه*`;
+    throw ` *أدخل نصًا أو قم بالرد على رسالة بنص لاستخدام blackbox*\n\n⟣ *${usedPrefix + command}* ما هو افضل انمي\n⟣ *${usedPrefix + command}* give me a simple code for nodejs`;
   }
 
   if (!text && m.quoted && m.quoted.text) {
@@ -10,43 +10,46 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
   }
 
   try {
-    const rwait = '🕒'; // رمز الانتظار
-    const done = '✅'; // رمز الانتهاء
-
-    await conn.sendMessage(m.chat, {
+    m.react(rwait);
+    const { key } = await conn.sendMessage(m.chat, {
       image: { url: 'https://telegra.ph/file/65f8f42c0a9435ff4f125.jpg' },
-      caption: 'ثانيه افكر....⚡'
+      caption: '_انـتـظر رد فـيـوتـر . . ._'
     }, { quoted: m });
-    
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
     const apiUrl = `https://aemt.me/bard?text=${prompt}`;
 
-    let response = await fetch(guru2);
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-    let data = await response.json();
-    let result = data.completion;
-    if (!result) throw new Error('No completion found in the response.');
+    try {
+      let response = await fetch(apiUrl);
+      let data = await response.json();
+      let reply = data.result;
 
-    let yourName = '𝐵𝑌:𝑮𝒐𝒌𝒖⚡𝐵𝑂𝑇'; // قم بتعيين اسمك هنا
+      if (!reply) {
+        throw new Error('⚠️ حدثت مشكلة في الـAPI');
+      }
 
-    await conn.sendMessage(m.chat, {
-      text: result + ' ' + yourName
-    }, { quoted: m });
-
-    // تعيين رمز الانتهاء
-    // ملاحظة: يجب عليك توفير طريقة لتحديث الحالة إذا كان لديك دالة لهذا الغرض
-    // m.react(done);  // تأكد من أن لديك دالة لتحديث حالة الرسالة
+      await conn.relayMessage(m.chat, {
+        protocolMessage: {
+          key,
+          type: 14,
+          editedMessage: {
+            imageMessage: { caption: `${reply}` } // تم إزالة التعليق هنا
+          }
+        }
+      }, {});
+      m.react(done);
+    } catch (error) {
+      console.error('Error from the API:', error);
+    }
 
   } catch (error) {
-    console.error('خطأ:', error);
-    throw `*[❗] خطأ، يرجى إدخال نص صحيح*`;
+    console.error('Error:', error);
+    throw `*ERROR*`;
   }
 };
 
-handler.help = ['chats'];
-handler.tags = ['ذكاء اصناعي'];
-handler.command = ['goku', 'غوكو'];
-
+handler.help = ['chatgpt'];
+handler.tags = ['AI'];
+handler.command = ['غوكو'];
 export default handler;
