@@ -25,6 +25,6 @@ let handler = async (m, { conn }) => {
 
 handler.help = ['Palestine']
 handler.tags = ['Palestine']
-handler.command = ['فلسطين']
+handler.command = /^فلسطين$/i
 
 export default handler
