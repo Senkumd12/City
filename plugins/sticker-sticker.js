@@ -42,7 +42,7 @@ stiker = '*يجب ارسال صوره او فيديو لصنعة ملصق منه
 m.reply(stiker)}}
 handler.help = ['sfull']
 handler.tags = ['sticker']
-handler.command = /^ملصق(tic?ker)?(gif)?(ملصق)?$/i
+handler.command = /^ملصق$/i
 export default handler
 const isUrl = (text) => text.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)(jpe?g|gif|png)/, 'gi'))
 async function createSticker(img, url, packName, authorName, quality) {
@@ -92,4 +92,3 @@ stickerServerEndpoint: true
 }}
 let res = await fetch('https://sticker-api.openwa.dev/convertMp4BufferToWebpDataUrl', { method: 'post', headers: { Accept: 'application/json, text/plain, /', 'Content-Type': 'application/json;charset=utf-8', }, body: JSON.stringify(Format)})
 return Buffer.from((await res.text()).split(';base64,')[1], 'base64')}
-  
