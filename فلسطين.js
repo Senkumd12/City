@@ -16,8 +16,8 @@ let handler = async (m, { conn }) => {
   }
   
   let link = await uploadImage(media)
-  let Zoro = https://api-me-4ef1b6491458.herokuapp.com/api/makers/Palestine?image=${link}
-  let message = *🇵🇸 Free Palestine 🇵🇸*\n\n*اللهم انصر إخواننا في فلسطين وفرج همهم وكربهم واحفظهم يا رب العالمين*
+  let Zoro = `https://api-me-4ef1b6491458.herokuapp.com/api/makers/Palestine?image=${link}`
+  let message = `*🇵🇸 Free Palestine 🇵🇸*\n\n*اللهم انصر إخواننا في فلسطين وفرج همهم وكربهم واحفظهم يا رب العالمين*`
   
   await conn.sendFile(m.chat, Zoro, 'Palestine.png', message, m)
   m.react('🇵🇸')
@@ -27,4 +27,4 @@ handler.help = ['Palestine']
 handler.tags = ['Palestine']
 handler.command = ['بروفايلي','فلسطين']
 
-export default handler
+export default handler
