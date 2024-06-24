@@ -14,14 +14,14 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
     const done = '✅'; // رمز الانتهاء
 
     await conn.sendMessage(m.chat, {
-      image: { url: 'https://telegra.ph/file/cf3ff642dd9eb7b209e36.jpg' },
+      image: { url: 'https://telegra.ph/file/65f8f42c0a9435ff4f125.jpg' },
       caption: 'ثانيه افكر....⚡'
     }, { quoted: m });
     
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
 
-    const guru2 = `https://aemt.me/bard?text=${prompt}`;
+    const apiUrl = `https://aemt.me/bard?text=${prompt}`;
 
     let response = await fetch(guru2);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
