@@ -2,25 +2,25 @@ import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath, pathToFileURL } from 'url'
 
-global.owner = [['212601064446', '🌩️ ẉa.me/AFROTO‖.peị!‽ 👑', true], 
- ['201067999523', '🌩️ ẉa.me/AFROTO‖.peị!‽ 👑', true],  ['212601064446'], ['201067999523'], ['212601064446'], ['201067999523'], ['201067999523'], ['201067999523'], ['212601064446'], ['201067999523'], ['212601064446']]
+global.owner = [['201153263863', '🌩️ ẉa.me/𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧‖.peị!‽ 👑', true], 
+ ['201153263863', '🌩️ ẉa.me/𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧‖.peị!‽ 👑', true],  ['201153263863'], ['201153263863'], ['201153263863'], ['201153263863'], ['201153263863'], ['201153263863'], ['201153263863'], ['201153263863'], ['201153263863']]
 
 //BETA: Si quiere evitar escribir el número que será bot en la consola, agregué desde aquí entonces:
 //Sólo aplica para opción 2 (ser bot con código de texto de 8 digitos)
-global.botNumberCode = '' //Ejemplo: +201067999523
+global.botNumberCode = '' //Ejemplo: +201153263863
 global.confirmCode = ''
 
-global.animxscans = ['212601064446']
-global.suittag = ['212601064446']
+global.animxscans = ['201153263863']
+global.suittag = ['201153263863']
 global.mods = []
 global.prems = []
 
-global.packname = '『 201067999523 』'
-global.author = '『 غوكـو بــ☠️ـوت 』'
-global.wm = '『غـوكـو بــ🐍ـؤؤت 』'
-global.wm2 = '『 غــوكـو بــ💎ـوت 』'
-global.azami = '『غـوكو بــ💀وت 』'
-global.cb = '『 غــوكــو بــ👾ـوت 』'
+global.packname = '『 201153263863 』'
+global.author = '『 كـاسـبـر بــــوت 』'
+global.wm = '『كـاسـبـر بــــوت 』'
+global.wm2 = '『 كـاسـبـر بــــوت 』'
+global.azami = '『كـاسـبـر بــــوت 』'
+global.cb = '『 كـاسـبـر بــــوت 』'
 
 global.vs = 'V2 • 1.0.5'
 global.library = 'Baileys'
@@ -28,8 +28,8 @@ global.baileys = '@whiskeysockets/baileys'
 global.lenguaje = 'Español'
 global.KMA = '╰━━━〔 *🛡️ 1.7.9* 〕━━━━━⬣'
 global.menudi = ['⛶','❏','⫹⫺']
-global.dev = '© 𝑮𝒐𝒌𝒖_BOT'
-global.devnum = '212601064446'
+global.dev = '© 𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧'
+global.devnum = '201153263863'
 
 let file = fileURLToPath(import.meta.url)
 watchFile(file, () => { unwatchFile(file)
