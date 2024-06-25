@@ -4,7 +4,9 @@ const uri = 'mongodb+srv://itachi3mk:mypassis1199@cluster0.zzyxjo3.mongodb.net/?
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => console.log('Connected to MongoDB')).catch(error => console.error('Error connecting to MongoDB:', error));
+})
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(error => console.error('Error connecting to MongoDB:', error));
 
 const bk9Schema = new mongoose.Schema({
     groupId: String,
@@ -57,12 +59,12 @@ let handler = async function (message, { conn, text, command, isAdmin }) {
             const existingNickname = await BK9.findOne({ bk9: nickname, groupId: message.chat });
             if (existingNickname) {
                 const userName = await conn.getName(existingNickname.userId + '@s.whatsapp.net');
-                message.reply('┇ اللقب' + nickname +'ماخوذ من طرف @' + userName);
+                message.reply('┇ اللقب ' + nickname + ' ماخوذ من طرف @' + userName);
             } else {
                 await BK9.findOneAndUpdate({ userId, groupId: message.chat }, { bk9: nickname }, { upsert: true });
                 message.reply('┇ تم تسجيله بلقب ' + nickname + ' بنجاح');
             }
-        } else if (command === 'حذف_لقب') {
+        } else if (command === 'الغاء-لقب') {
             if (!message.isGroup) {
                 message.reply('هذا الأمر يعمل فقط في المجموعات');
                 return;
@@ -119,7 +121,7 @@ let handler = async function (message, { conn, text, command, isAdmin }) {
     }
 };
 
-handler.command = ['الالقاب', 'تسجيل', 'لقبي', 'لقبه', 'حذف_لقب', 'لقب'];
+handler.command = ['الالقاب', 'تسجيل', 'لقبي', 'لقبه', 'الغاء-لقب', 'لقب'];
 handler.tags = ['BK9'];
 
-export default handler;
+export default handler;
