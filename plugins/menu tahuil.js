@@ -27,5 +27,5 @@ let str = `                  ✥━─━⌬ 𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧  �
 
 handler.help = ['main']
 handler.tags = ['group']
-handler.command = ['التحويلات']
+handler.command = ['8']
 export default handler
