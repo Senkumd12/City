@@ -11,7 +11,7 @@ let q = m.quoted ? m.quoted : m
 let mime = (q.msg || q).mimetype || q.mediaType || ""
 if (!mime)
 
-return conn.reply(m.chat, `*🎌 اعمل ريبلاي ع الصوره*`, m, fake, )
+return conn.reply(m.chat, `*🏴 اعمل ريبلاي ع الصورة*`, m, fake, )
 if (!/image\/(jpe?g|png|mp4)/.test(mime))
 
 return conn.reply(m.chat, `*🚩 Mímica ${mime} no soportada*`, m, fake, )
@@ -23,7 +23,7 @@ let img = await q.download?.()
 let error
 try {
 const This = await processing(img, "enlace")
-conn.sendFile(m.chat, This, '*『👑┇𝑮𝒐𝒌𝒖-𝙱𝙾𝚃』*', '🧃 *تفضل يا روحي*\n\n' + cred.toString('utf-8'), m)
+conn.sendFile(m.chat, This, '*『𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧』*', ' *تفضل*\n\n' + cred.toString('utf-8'), m)
 } catch (er) {
 error = true
 } finally {
@@ -35,7 +35,7 @@ delete conn.hdr[m.sender]
   
 handler.help = ['hd']
 handler.tags = ['ai']
-handler.command = /^(جوده)$/i
+handler.command = /^(جوده|جودة)$/i;
 
 handler.limit = true
   
