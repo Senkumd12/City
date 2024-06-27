@@ -4,7 +4,7 @@ import ytdl from 'ytdl-core';
 import axios from 'axios';
 import {youtubedl, youtubedlv2} from '@bochilteam/scraper';
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
-if (!text) throw `*⚠️ أدخل اسم الأغنية التي تبحث عنها*\n\n*💡 مثال*\n*${usedPrefix + command}* Another love`
+if (!text) throw `*⚠️ أدخل اسم الأغنية التي تبحث عنها*\n\n*💡 مثال*\n*${usedPrefix + command}* سورة مريم`
 m.react(done) 
   try {
     const yt_play = await search(args.join(' '));
@@ -17,10 +17,10 @@ m.react(done)
     const texto1 = `*╭—╼—⌈🔊 تحميل يوتيوب 🔊⌋—╼—❀*
  ┆❀ *عنوان:* ${yt_play[0].title}
  ┆❀ *النشر:* ${yt_play[0].ago}
- ┆❀ *المده:* ${secondString(yt_play[0].duration.seconds)}
+ ┆❀ *المدة:* ${secondString(yt_play[0].duration.seconds)}
  ┆❀ *الاراء:* ${MilesNumber(yt_play[0].views)}
  ┆❀ *مؤلف:* ${yt_play[0].author.name}
- ┆❀ *قناه:* ${yt_play[0].author.url}
+ ┆❀ *قناة:* ${yt_play[0].author.url}
  ┆❀ *تعريف:* ${yt_play[0].videoId}
  ┆❀ *الطلب:* ${yt_play[0].type}
  ┆❀ *اللينك:* ${yt_play[0].url}\n
