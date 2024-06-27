@@ -38,6 +38,6 @@ let str = `                  ✥━─━⌬ 𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧  �
 
 handler.help = ['main']
 handler.tags = ['group']
-handler.command = ['الجروب']
+handler.command = ['5']
 
 export default handler
