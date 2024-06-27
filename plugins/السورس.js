@@ -1,36 +1,25 @@
 let handler = async (m, { conn, command, text }) => {
 let love = `‏
 
-*✥━─━⌬〘𝑮𝒐𝒌𝒖_𝒃𝒐𝒕〙⌬━─━✥*
+*✥━─━⌬〘𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧〙⌬━─━✥*
 
-*⌬〘 مرحبا بك في بوت غوكو 〙⌬*
-
-*⌬〘 اليك قائمه بسورس البوت 〙⌬*
+*⌬〘 مرحبا بك في بوت كاسبر 〙⌬*
 
 *✥━─━⌬〘🔥〙⌬━─━✥*
 
-*⌬〘 تم تطويري وبرمجتي 〙⌬*
-*⌬〘 بواسطه 𝓐𝓜𝓡𝓞 𝓚𝓗𝓐𝓛𝓘𝓓〙⌬*
-*⌬〘 هذا البوت يعمل بالخاص 〙⌬*
-*⌬〘 ويعمل ايضاا بالمجموعات 〙⌬*
-*⌬〘 اذا كنت تريد صناعه بوت 〙⌬*
-*⌬〘 فعليك الانضمام الي جروبنا 〙⌬*
+*⌬〘 القناة 〙⌬*
 
-*✥━─━⌬〘🔥〙⌬━─━✥*
+*⏣⊰ https://whatsapp.com/channel/0029Vadaqas6WaKiKeJEvz2w ⊱⏣*
 
-*⌬〘 واتساب 〙⌬*
+*⌬〘 رقمي 〙⌬*
 
-*⏣⊰ https://chat.whatsapp.com/EbzeqqSjqsMI2oDrjSdT3g ⊱⏣*
-
-*⌬〘 واتساب 〙⌬*
-
-*⏣⊰ https://wa.me/+967774318278 ⊱⏣*
+*⏣⊰ https://wa.me/201153263863 ⊱⏣*
 
 *⌬〘 الدعم 〙⌬*
 
-*⏣⊰ https://chat.whatsapp.com/EbzeqqSjqsMI2oDrjSdT3g ⊱⏣*
+*⏣⊰ https://chat.whatsapp.com/GY38jY0p0g49BsuYoFZhfm ⊱⏣*
 
-*✥━─━⌬〘𝑮𝒐𝒌𝒖_𝒃𝒐𝒕〙⌬━─━✥*
+*✥━─━⌬〘𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧〙⌬━─━✥*
  `.trim()
 m.reply(love, null, { mentions: conn.parseMention(love) })}
 handler.help = ['love']
