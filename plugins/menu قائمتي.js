@@ -40,6 +40,6 @@ let str = `                  ✥━─━⌬ 𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧  �
 
 handler.help = ['main']
 handler.tags = ['group']
-handler.command = ['قائمتي' ,'قايمه','القايمه']
+handler.command = ['10']
 handler.rowner = true
 export default handler
