@@ -1,16 +1,14 @@
 let handler = async (m, { conn, command, text }) => {
 let love = `
-*لدعم البوت تستطيع ان تفعل:-*
-*1_تستطيع دخول قروب دعم البوت لدعمه.↯↯*
-**
+⌬┇━──╌ •⤣⚡⤤• ╌──━┇⌬
+اهلا بك في دعم بوت كاسبر
+┇جروب الدعم 👇┇
+𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧 𝓑𝓞𝓣...〔 https://chat.whatsapp.com/GY38jY0p0g49BsuYoFZhfm 〕
 
-*2_وتستطيع ان تتابع البوت على الانستا:-*
-*https://www.instagram.com/mrwbryh?igsh=MWxwZ2o4N2NkMHN5YQ==* 
+┇قناة البوت ننشر اكواد وكل ما يفيدك 👇┇
+قناة البوت...〔 https://whatsapp.com/channel/0029Vadaqas6WaKiKeJEvz2w 〕
 
-*3_وتستطيع دعم المطور من هنا:-*
-*+967774318278*
-
-*وشكرا لكم يا افضل مستخدمين 👾👑*
+❐━═⏣⊰𝐵𝑌:𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧⚡𝓑𝓞𝓣⊱⏣═━❐
 `.trim()
 m.reply(love, null, { mentions: conn.parseMention(love) })}
 handler.help = ['estupidez']
