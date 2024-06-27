@@ -12,8 +12,8 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
   try {
     m.react(rwait);
     const { key } = await conn.sendMessage(m.chat, {
-      image: { url: 'https://telegra.ph/file/65f8f42c0a9435ff4f125.jpg' },
-      caption: '_انـتـظر رد فـيـوتـر . . ._'
+      image: { url: 'https://telegra.ph/file/0a2dcacbb7021f29aa000.jpg' },
+      caption: '_انـتـظر رد شـادو . . ._'
     }, { quoted: m });
     conn.sendPresenceUpdate('composing', m.chat);
     const prompt = encodeURIComponent(text);
@@ -51,5 +51,5 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
 
 handler.help = ['chatgpt'];
 handler.tags = ['AI'];
-handler.command = ['فيوتر'];
+handler.command = ['شادو'];
 export default handler;
