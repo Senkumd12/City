@@ -1,9 +1,9 @@
 let handler  = async (m, { conn }) => {
-conn.reply(m.chat,`*『🔥┇𝑮𝒐𝒌𝒖-𝙱𝙾𝚃 *\n*❆╼━━❆ •﹝🔥﹞• ❆━━╾❆*\n*『${pickRandom(global.bucin)}』*\n*❆╼━━❆ •﹝🔥﹞• ❆━━╾❆*`, m)
+conn.reply(m.chat,`*『𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧 *\n*❆╼━━❆ •• ❆━━╾❆*\n*『${pickRandom(global.bucin)}』*\n*❆╼━━❆ •• ❆━━╾❆*`, m)
 }
 handler.help = ['reto']
 handler.tags = ['fun']
-handler.command = /اسئلني/i
+handler.command = /اسألني/i
 export default handler
 
 function pickRandom(list) {
