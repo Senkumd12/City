@@ -1,5 +1,5 @@
 let handler = async (m, { conn, text }) => {
-  let tagme = `https://wa.me/+${m.sender.replace(`+`)}/?text=BY+『🔥┇𝑮𝒐𝒌𝒖-𝙱𝙾𝚃』`
+  let tagme = `https://wa.me/+${m.sender.replace(`+`)}/?text=BY+『𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧』`
   let mylink = [m.sender]
   conn.reply(m.chat, tagme, m, { contextInfo: { mylink }})
 }
