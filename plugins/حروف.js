@@ -3,7 +3,7 @@ conn.reply(m.chat,`*『𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧*❆╼━━❆ •• �
 }
 handler.help = ['kshskshd']
 handler.tags = ['fun']
-handler.command = /حروف|احرف/i
+handler.command = /حروف|احرف|جماد/i
 export default handler
 
 function pickRandom(list) {
