@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 let handler = async (m, { text, conn, usedPrefix, command }) => {
   if (!text && !(m.quoted && m.quoted.text)) {
-    throw `*عيون سيلفي وش السالفة*`;
+    throw '*عيون سيلفي وش السالفة*';
   }
 
   if (!text && m.quoted && m.quoted.text) {
@@ -20,7 +20,8 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
 
     conn.sendPresenceUpdate('composing', m.chat);
 
-    // عنوان API الأول
+    // تأكد من أن متغير `gurubot` معرف ويحتوي على عنوان API الأول
+    const gurubot = 'https://example.com/api'; // ضع هنا عنوان API الأول الصحيح
     const guru1 = `${gurubot}/chatgpt?text=${prompt}&lang=ar`;
 
     try {
@@ -48,6 +49,10 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
         let data = await response.json();
         let result = data.completion;
 
+        if (!result) {
+          throw new Error('حدث خطأ');
+        }
+
         await conn.sendMessage(m.chat, {
           text: result,
           quoted: m,
@@ -55,13 +60,13 @@ let handler = async (m, { text, conn, usedPrefix, command }) => {
 
       } catch (error) {
         console.error('خطأ في API الثاني:', error);
-        throw `*حدث خطأ أثناء جلب المعلومات.*`;
+        throw '*حدث خطأ أثناء جلب المعلومات.*';
       }
     }
 
   } catch (error) {
     console.error('Error:', error);
-    throw `*خطأ أثناء تنفيذ العملية.*`;
+    throw '*خطأ أثناء تنفيذ العملية.*';
   }
 };
 
