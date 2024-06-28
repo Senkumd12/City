@@ -485,8 +485,8 @@ pp = await this.profilePictureUrl(user, 'image')
 } catch (e) {
 } finally {
 let apii = await this.getFile(pp)
-text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'هلا نورت الجروب 🚶🏼, @user!').replace('@date', global.fecha).replace('@time', global.tiempo).replace('@readMore', global.readMore).replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*⚠️ ESTE GRUPO NO TIENE DESCRIPCIÓN ⚠️*') :
-(chat.sBye || this.bye || conn.bye || 'المركب اللي تودي مترجعش 🚯, @user!')).replace('@user', '@' + user.split('@')[0]).replace('@date', global.fecha).replace('@time', global.tiempo)
+text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'مـرحـبـاً - أنـرتـنـا 🕯, @user!').replace('@date', global.fecha).replace('@time', global.tiempo).replace('@readMore', global.readMore).replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*⚠️ ESTE GRUPO NO TIENE DESCRIPCIÓN ⚠️*') :
+(chat.sBye || this.bye || conn.bye || 'نـراك قـريـبـاً 🪔, @user!')).replace('@user', '@' + user.split('@')[0]).replace('@date', global.fecha).replace('@time', global.tiempo)
 let links = linkSity.getRandom()
 
 this.sendMessage(id, { text: text, contextInfo:{ mentionedJid:[user], "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": 'W E L C O M E', "body": `${wm}`, "previewType": "PHOTO", "thumbnailUrl": ``, "thumbnail": apii.data, "sourceUrl": links}}})
@@ -496,11 +496,11 @@ this.sendMessage(id, { text: text, contextInfo:{ mentionedJid:[user], "externalA
 break
 case 'promote':
 case 'promover':
-text = (chat.sPromote || this.spromote || conn.spromote || '@user لقد اصبح ادمن الان 👽')
+text = (chat.sPromote || this.spromote || conn.spromote || '@user لـقـد أصـبـحـت مُـشـرف 🧧')
 case 'demote':
 case 'degradar':
 if (!text)
-text = (chat.sDemote || this.sdemote || conn.sdemote || '@user لم يعد ادمن بعد الان 👾')
+text = (chat.sDemote || this.sdemote || conn.sdemote || '@user لـم تـعـد مُـشـرف 🪔')
 text = text.replace('@user', '@' + participants[0].split('@')[0])
 if (chat.detect)
 this.sendMessage(id, { text, mentions: this.parseMention(text) })
@@ -531,9 +531,9 @@ if (!isAnticall) return
 for (let cs of callUpdate) {
 if (cs.isGroup == false) {
 if (cs.status == "offer") {
-let callmsg = await this.reply(nk.from, `مرحبا *@${cs.from.split('@')[0]}*, Las ${cs.isVideo ? 'videollamadas' : 'llamadas'} ممنوع الاتصال وسيتم حظرك`, false, { mentions: [cs.from] })
-let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;𝑮𝒐𝒌𝒖 👑;;;\nFN:Azami\nORG:Azami 👑\nTITLE:\nitem1.TEL;waid=+967774318278:+967774318278\nitem1.X-ABLabel:𝑮𝒐𝒌𝒖 👑\nX-WA-BIZ-DESCRIPTION:Solo cosas del bot.\nX-WA-BIZ-NAME:𝑮𝒐𝒌𝒖 👑\nEND:VCARD`
-await this.sendMessage(cs.from, { contacts: { displayName: '𝑮𝒐𝒌𝒖 👑', contacts: [{ vcard }] }}, {quoted: callmsg})
+let callmsg = await this.reply(nk.from, `مـرحـبـاً *@${cs.from.split('@')[0]}*, Las ${cs.isVideo ? 'videollamadas' : 'llamadas'} مـمـنـوع الإتـصـال , سـيـتـم حـظـرك , كـلـم الـمـطـور لـفـك حـظـرك: wa.me/+201153263863`, false, { mentions: [cs.from] })
+let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧;;;\nFN:Azami\nORG:Azami 👑\nTITLE:\nitem1.TEL;waid=+967774318278:+967774318278\nitem1.X-ABLabel:𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧\nX-WA-BIZ-DESCRIPTION:Solo cosas del bot.\nX-WA-BIZ-NAME:𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧\nEND:VCARD`
+await this.sendMessage(cs.from, { contacts: { displayName: '𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧', contacts: [{ vcard }] }}, {quoted: callmsg})
 await this.updateBlockStatus(cs.from, 'block')
 }}}
 }
@@ -565,18 +565,18 @@ let fotos = sityImg.getRandom()
 global.dfail = (type, m, conn) => {
 
 let msg = {
-rowner: '*➺ الامر دا لمطور فقط 🔰*',
-owner: '*➺الامر دا للمطور فقط 🔰*',
-mods: '*➺الامر دا للمشرفين فقط 🔰*',
-premium: '*¡➺الامر دا للمميزين فقط 🔰!*',
-group: '*¡➺الميزه دي فالجروبات فقط🔰!*',
-private: '*¡➺الامر دا للخاص فقط🔰!*',
-admin: '*¡➺الامر دا لاادمن فقط🔰!*',
-botAdmin: '*¡➺يجب رفع البوت ادمن🔰!*',
-unreg: '*¡يجب التسجيل لاستخدام الامر يحب!*\n\n!تسجيل الاسم.العمر\n\n*الاستخدام الصحيح* : !تسجيل غوكو.17',
-restrict: '*¡الميزه معطله من قبل المطور!*'
+rowner: '*➺ هـذا الأمـر للـمـطـور فـقـط 🧧*',
+owner: '*➺ هـذا الأمـر للـمـطـور فـقـط 🧧*',
+mods: '*➺ هـذا الأمـر للـمـشـرفـيـن فـقـط 🧧*',
+premium: '*¡➺ هـذا الأمـر للـمـمـيـزيـن فـقـط 🧧!*',
+group: '*¡➺ هـذا الأمـر للـجـروبـات فـقـط 🧧!*',
+private: '*¡➺ هـذا الأمـر للـخـاص فـقـط 🧧!*',
+admin: '*¡➺ هـذا الأمـر للـمـشـرفـيـن فـقـط 🧧!*',
+botAdmin: '*¡➺ يـجـب رفـع الـبـوت ادمـن 🧧!*',
+unreg: '*¡يجب التسجيل لإستخدام الأمر!*\n\n!تسجيل الاسم.العمر\n\n*الإستخدام الصحيح* : !تسجيل خالد.17',
+restrict: '*¡الميزة معطلة من قبل المطور!*'
 }[type]
-if (msg) return conn.reply(m.chat, msg, m, { contextInfo:{ externalAdReply: {title: '🎄'  + saludo + ' ' + nombre, body: dev, sourceUrl: global.channel, thumbnailUrl: fotos }}})
+if (msg) return conn.reply(m.chat, msg, m, { contextInfo:{ externalAdReply: {title: '☪'  + saludo + ' ' + nombre, body: dev, sourceUrl: global.channel, thumbnailUrl: fotos }}})
 
 }
 const file = global.__filename(import.meta.url, true);
