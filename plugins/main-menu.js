@@ -70,7 +70,7 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isP
 `.trim()
 
     conn.sendMessage(m.chat, {
-        video: { url: videoUrl }, caption: str,
+    image: { url: imageUrl }, 
         mentions: [m.sender, global.conn.user.jid],
         gifPlayback: true, gifAttribution: 0
     }, { quoted: m })
