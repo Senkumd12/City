@@ -477,94 +477,30 @@ switch (action) {
 case 'add':
 case 'remove':
 if (chat.welcome) {
-//كود الترحيب مقدم من قناه Zoro Codes
-if (chat.welcome) {
-              let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
-              for (let user of participants) {
-                let pp, ppgp;
-                try {
-                  pp = await this.profilePictureUrl(user, 'image');
-                  ppgp = await this.profilePictureUrl(id, 'image');
-                } catch (error) {
-                  console.error(حدث خطأ أثناء استرداد الصورة الشخصية: ${error});
-                  pp = 'https://telegra.ph/file/d37b343ee8f981be6ffba.jpg'; // Assign default image URL
-                  ppgp = 'https://telegra.ph/file/d37b343ee8f981be6ffba.jpg'; // Assign default image URL
-                } finally {
-                  let text = (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user')
-                    .replace('@group', await this.getName(id))
-                    .replace('@desc', groupMetadata.desc?.toString() || 'لايوجد وصف')
-                    .replace('@user', '@' + user.split('@')[0]);
-          
-                  let nthMember = groupMetadata.participants.length;
-                  let secondText = اهلا ياحب, ${await this.getName(user)}, رقم ${nthMember}العضو;
-          
-                  let welcomeApiUrl = `https://api.popcat.xyz/welcomecard?background=${encodeURIComponent(
-                    'https://telegra.ph/file/919c9aa59b8dc5cae41a8.png'
-                  )}&text1=${encodeURIComponent(
-                    await this.getName(user)
-                  )}&text2=أنـرتـنـا&text3=عدد+الاعضاء:${encodeURIComponent(
-                    nthMember.toString()
-                  )}&avatar=${encodeURIComponent(pp)}`;
-          
-                  try {
-                    let welcomeResponse = await fetch(welcomeApiUrl);
-                    let welcomeBuffer = await welcomeResponse.buffer();
-          
-                    this.sendFile(id, welcomeBuffer, 'welcome.png', text, null, false, { mentions: [user] });
-                  } catch (error) {
-                    console.error(حدث خطأ أثناء إنشاء صورة الترحيب: ${error});
-                  }
-                }
-              }
-            }
-            break;
-          
-          case 'remove':
-            if (chat.welcome) {
-              let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata;
-              for (let user of participants) {
-                let pp, ppgp;
-                try {
-                  pp = await this.profilePictureUrl(user, 'image');
-                  ppgp = await this.profilePictureUrl(id, 'image');
-                } catch (error) {
-                  console.error(حدث خطأ أثناء استرداد الصورة الشخصية: ${error});
-                  pp = 'https://telegra.ph/file/d37b343ee8f981be6ffba.jpg'; // Assign default image URL
-                  ppgp = 'https://telegra.ph/file/d37b343ee8f981be6ffba.jpg'; // Assign default image URL
-                } finally {
-                  let text = (chat.sBye || this.bye || conn.bye || 'مـرحـبـا, @user')
-                    .replace('@user', '@' + user.split('@')[0]);
-          
-                  let nthMember = groupMetadata.participants.length;
-                  let secondText = وداعا, رقم ${nthMember}عضونا;
-          
-                  let leaveApiUrl = `https://api.popcat.xyz/welcomecard?background=${encodeURIComponent(
-                    'https://telegra.ph/file/919c9aa59b8dc5cae41a8.png'
-                  )}&text1=${encodeURIComponent(
-                    await this.getName(user)
-                  )}&text2=الـى+اللـقـاء&text3=عـدد+الأعـضـاء:${encodeURIComponent(
-                    nthMember.toString()
-                  )}&avatar=${encodeURIComponent(pp)}`;
-          
-                  try {
-                    let leaveResponse = await fetch(leaveApiUrl);
-                    let leaveBuffer = await leaveResponse.buffer();
-          
-                    this.sendFile(id, leaveBuffer, 'leave.png', text, null, false, { mentions: [user] });
-                  } catch (error) {
-                    console.error(حدث خطأ أثناء إنشاء صورة الإجازة: ${error});
-                  }
-                }
-              }
-            }
-            break;
+let groupMetadata = await this.groupMetadata(id) || (conn.chats[id] || {}).metadata
+for (let user of participants) {
+let pp = './src/avatar_contact.png'
+try {
+pp = await this.profilePictureUrl(user, 'image')
+} catch (e) {
+} finally {
+let apii = await this.getFile(pp)
+text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'هلا نورت الجروب 🚶🏼, @user!').replace('@date', global.fecha).replace('@time', global.tiempo).replace('@readMore', global.readMore).replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*⚠️ ESTE GRUPO NO TIENE DESCRIPCIÓN ⚠️*') :
+(chat.sBye || this.bye || conn.bye || 'المركب اللي تودي مترجعش 🚯, @user!')).replace('@user', '@' + user.split('@')[0]).replace('@date', global.fecha).replace('@time', global.tiempo)
+let links = linkSity.getRandom()
+
+this.sendMessage(id, { text: text, contextInfo:{ mentionedJid:[user], "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "title": 'W E L C O M E', "body": `${wm}`, "previewType": "PHOTO", "thumbnailUrl": ``, "thumbnail": apii.data, "sourceUrl": links}}})
+      
+}}}
+
+break
 case 'promote':
 case 'promover':
-text = (chat.sPromote || this.spromote || conn.spromote || '@user لـقـد أصـبـحـت مـشـرف🧧')
+text = (chat.sPromote || this.spromote || conn.spromote || '@user لقد اصبح ادمن الان 👽')
 case 'demote':
 case 'degradar':
 if (!text)
-text = (chat.sDemote || this.sdemote || conn.sdemote || '@user لـم تـعـد مـشـرف🔖')
+text = (chat.sDemote || this.sdemote || conn.sdemote || '@user لم يعد ادمن بعد الان 👾')
 text = text.replace('@user', '@' + participants[0].split('@')[0])
 if (chat.detect)
 this.sendMessage(id, { text, mentions: this.parseMention(text) })
@@ -596,8 +532,8 @@ for (let cs of callUpdate) {
 if (cs.isGroup == false) {
 if (cs.status == "offer") {
 let callmsg = await this.reply(nk.from, `مرحبا *@${cs.from.split('@')[0]}*, Las ${cs.isVideo ? 'videollamadas' : 'llamadas'} ممنوع الاتصال وسيتم حظرك`, false, { mentions: [cs.from] })
-let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;Casper;;;\nFN:Azami\nORG:Azami 👑\nTITLE:\nitem1.TEL;waid=+967774318278:+967774318278\nitem1.X-ABLabel:Casper\nX-WA-BIZ-DESCRIPTION:Solo cosas del bot.\nX-WA-BIZ-NAME:Casper\nEND:VCARD`
-await this.sendMessage(cs.from, { contacts: { displayName: 'Casper', contacts: [{ vcard }] }}, {quoted: callmsg})
+let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;𝑮𝒐𝒌𝒖 👑;;;\nFN:Azami\nORG:Azami 👑\nTITLE:\nitem1.TEL;waid=+967774318278:+967774318278\nitem1.X-ABLabel:𝑮𝒐𝒌𝒖 👑\nX-WA-BIZ-DESCRIPTION:Solo cosas del bot.\nX-WA-BIZ-NAME:𝑮𝒐𝒌𝒖 👑\nEND:VCARD`
+await this.sendMessage(cs.from, { contacts: { displayName: '𝑮𝒐𝒌𝒖 👑', contacts: [{ vcard }] }}, {quoted: callmsg})
 await this.updateBlockStatus(cs.from, 'block')
 }}}
 }
@@ -614,7 +550,8 @@ return
 let chat = global.db.data.chats[msg.chat] || {}
 if (chat.delete)
 return
-await this.reply(msg.chat, `الـغـاء حـذف الـرسـالـة🧧 *رقم:* @${participant.split`@`[0]} 
+await this.reply(msg.chat, `🔎 الرساله التي تم حذفها
+🧃 *رقم:* @${participant.split`@`[0]} 
 `.trim(), msg, {
 mentions: [participant]
 })
@@ -628,16 +565,16 @@ let fotos = sityImg.getRandom()
 global.dfail = (type, m, conn) => {
 
 let msg = {
-rowner: '*➺ الأمر للمطور فقط 🔰*',
-owner: '*➺ الأمر للمطور فقط 🔰*',
-mods: '*➺ الأمر للمطور فقط 🔰*',
-premium: '*¡➺ الأمر للمميزين فقط 🔰!*',
-group: '*¡➺ هذه الميزة في الجروبات فقط 🔰!*',
-private: '*¡➺ الأمر للخاص فقط 🔰!*',
-admin: '*¡➺ الأمر للأدمن فقط 🔰!*',
-botAdmin: '*¡➺ يجب رفع البوت لمشرف 🔰!*',
-unreg: '*¡يجب التسجيل لإستخدام الأمر !*\n\n!تسجيل الاسم.العمر\n\n*الإستخدام الصحيح : !تسجيل خالد.17',
-restrict: '*¡الميزة معطلة من قِبل المطور!*'
+rowner: '*➺ الامر دا لمطور فقط 🔰*',
+owner: '*➺الامر دا للمطور فقط 🔰*',
+mods: '*➺الامر دا للمشرفين فقط 🔰*',
+premium: '*¡➺الامر دا للمميزين فقط 🔰!*',
+group: '*¡➺الميزه دي فالجروبات فقط🔰!*',
+private: '*¡➺الامر دا للخاص فقط🔰!*',
+admin: '*¡➺الامر دا لاادمن فقط🔰!*',
+botAdmin: '*¡➺يجب رفع البوت ادمن🔰!*',
+unreg: '*¡يجب التسجيل لاستخدام الامر يحب!*\n\n!تسجيل الاسم.العمر\n\n*الاستخدام الصحيح* : !تسجيل غوكو.17',
+restrict: '*¡الميزه معطله من قبل المطور!*'
 }[type]
 if (msg) return conn.reply(m.chat, msg, m, { contextInfo:{ externalAdReply: {title: '🎄'  + saludo + ' ' + nombre, body: dev, sourceUrl: global.channel, thumbnailUrl: fotos }}})
 
