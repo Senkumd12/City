@@ -19,8 +19,8 @@ let str = `                  ✥━─━⌬ 𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧  �
                     ✥━─━⌬ 𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧  ⌬━─━✥
 `
   conn.sendMessage(m.chat, {
-    caption: str,
     image: { url: imageUrl }, 
+    caption: str,
      mentions: [m.sender,global.conn.user.jid],
      gifPlayback: true,gifAttribution: 0
        }, { quoted: m });
