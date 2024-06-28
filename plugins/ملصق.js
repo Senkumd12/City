@@ -1,5 +1,5 @@
-import { Sticker } from 'wa-sticker-formatter';
-
+/* import { Sticker } from 'wa-sticker-formatter';
+// متنساش تشيل /* من اول حاجة عشان تشيل كتلة التعليق
 let handler = async (m, { conn }) => {
   let img1 = 'https://i.pinimg.com/474x/81/24/d7/8124d7d7b4f8a31ebd69357077f0395c.jpg';
   let img2 = 'https://i.pinimg.com/474x/48/7c/6a/487c6ac5b53248a5c5a2517e4c8438f5.jpg';
