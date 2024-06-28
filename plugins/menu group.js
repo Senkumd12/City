@@ -2,9 +2,9 @@ let handler = async (m, { conn }) => {
   let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   let imageUrl = 'https://telegra.ph/file/813c8a430f1d5d034f954.png'
   let { name } = global.db.data.users[who]
-  m.react('🔕')
+  m.react('🪔')
 let str = `                  ✥━─━⌬ 𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧  ⌬━─━✥
-【..≼قــســم الجروبات≽..】
+*【..≼قــســم الجروبات≽..】*
                    ⋄━───═◞⬪⋇⬪◟═───━⋄
 *📖🕯⤺┇〘جروبي〙*
 *📖🕯⤺┇〘معلوم_الجروب〙*
