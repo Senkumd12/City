@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 const timeout = 10000;
-const money = 1;
+const exp = 400;
 
 const handler = async (m, { conn, usedPrefix }) => {
   const datas = global;
@@ -21,7 +21,7 @@ const handler = async (m, { conn, usedPrefix }) => {
   const clue = _clue.replace(/[A-Za-z]/g, '_');
   const caption = `
 ⷮ \`〘 ${json.question} 〙\`
-${tradutor.texto2[1]} +${money} روبل ⊰B⊱
+${tradutor.texto2[1]} +${exp} اكسبي ⊰🧧⊱
 `.trim();
   const startTime = new Date().getTime(); // تسجيل وقت بدء السؤال
   conn.tekateki[id] = [
@@ -37,5 +37,5 @@ ${tradutor.texto2[1]} +${money} روبل ⊰B⊱
 
 handler.help = ['acertijo'];
 handler.tags = ['game'];
-handler.command = /^(acertijo|acert|pregunta|كت|tekateki)$/i;
+handler.command = /^(acertijo|acert|pregunta|كت2|tekateki)$/i;
 export default handler;
