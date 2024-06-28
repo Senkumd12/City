@@ -502,7 +502,7 @@ if (chat.welcome) {
                     'https://telegra.ph/file/919c9aa59b8dc5cae41a8.png'
                   )}&text1=${encodeURIComponent(
                     await this.getName(user)
-                  )}&text2=نورت+الجروب+يحب&text3=عدد+الاعضاء:${encodeURIComponent(
+                  )}&text2=أنـرتـنـا&text3=عدد+الاعضاء:${encodeURIComponent(
                     nthMember.toString()
                   )}&avatar=${encodeURIComponent(pp)}`;
           
