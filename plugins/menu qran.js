@@ -1,6 +1,6 @@
 let handler = async (m, { conn }) => {
   let who = m.quoted ? m.quoted.sender : (m.mentionedJid && m.mentionedJid[0]) ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
-  let imageUrl = 'https://telegra.ph/file/33dfde90b872532a79488.png';
+  let imageUrl = ''; // هنا يمكنك وضع رابط الصورة الجديدة
   let name = conn.contacts[who] != undefined ? conn.contacts[who].vname || conn.contacts[who].notify : undefined;
   
   m.react('☪');
