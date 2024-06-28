@@ -22,7 +22,6 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isP
     if (!(who in global.db.data.users)) throw `✳️ المستخدم غير موجود في قاعدة البيانات`
 
     let videoUrl = 'https://telegra.ph/file/3e86a457ac12476804580.png'
-    let vn = './media/menu.mp3'
     const user = global.db.data.users[m.sender]
     const { money, joincount } = global.db.data.users[m.sender]
     const { exp, limit, level, role } = global.db.data.users[m.sender]
@@ -43,7 +42,7 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isP
 
 *📖🕯 مـرحــبـا بــك یــا ${taguser}╎ᥫ᭡*
 *✦📖│· • • ━ ⊰🕯⊱ ━ • • ·│📖*
-*┇اهـلاً بـك فـي أوامـر بــوت" كــاســبــر" 🕯┇*
+*┇اهـلاً بـك فـي أوامـر بــوت "كـاسـبـر" 🕯┇*
 
 *📖🕯 اسـم الـبـوت 🕯 ⦂『كــاســبــر』*
 *📖🕯 الوقت  ⦂『${uptime}』*
