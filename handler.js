@@ -516,10 +516,10 @@ const id = groupUpdate.id
 if (!id) continue
 let chats = global.db.data.chats[id], text = ''
 if (!chats?.detect) continue
-if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'تم تغير للوصف اللي \n@desc').replace('@desc', groupUpdate.desc)
-if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'تم تغيير اسم الجروب إلى \n@group').replace('@subject', groupUpdate.subject)
-if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || 'تم تغيير أيقونة الجروب إلى').replace('@icon', groupUpdate.icon)
-if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || 'تم تغيير رابط الجروب اللي\n@revoke').replace('@revoke', groupUpdate.revoke)
+if (groupUpdate.desc) text = (chats.sDesc || this.sDesc || conn.sDesc || 'تم تغير الوصف الى \n@desc').replace('@desc', groupUpdate.desc)
+if (groupUpdate.subject) text = (chats.sSubject || this.sSubject || conn.sSubject || 'تم تغيير اسم الجروب الى \n@group').replace('@subject', groupUpdate.subject)
+if (groupUpdate.icon) text = (chats.sIcon || this.sIcon || conn.sIcon || 'تم تغيير ايقونة الجروب الى').replace('@icon', groupUpdate.icon)
+if (groupUpdate.revoke) text = (chats.sRevoke || this.sRevoke || conn.sRevoke || 'تم تغيير رابط الجروب الى\n@revoke').replace('@revoke', groupUpdate.revoke)
 if (!text) continue
 await this.sendMessage(id, { text, mentions: this.parseMention(text) })
 }}
@@ -550,8 +550,8 @@ return
 let chat = global.db.data.chats[msg.chat] || {}
 if (chat.delete)
 return
-await this.reply(msg.chat, `🔎 الرساله التي تم حذفها
-🧃 *رقم:* @${participant.split`@`[0]} 
+await this.reply(msg.chat, `🪔 إعـادة إرسـال الـرسـالـة الـمـحـذوفـة
+ *رقم:* @${participant.split`@`[0]} 
 `.trim(), msg, {
 mentions: [participant]
 })
