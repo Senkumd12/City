@@ -5,7 +5,7 @@ const handler = async (m, {conn, text, command, usedPrefix}) => {
   else who = m.chat;
   const user = global.db.data.users[who];
   const bot = global.db.data.settings[conn.user.jid] || {};
-  const warntext = `*[❗] اعمل منشن او ريبلاي علي الرساله *\n\n*—◉ مثال:*\n*${usedPrefix + command} @${global.suittag}*`;
+  const warntext = `*[❕] اعمل منشن او ريبلاي علي الرسالة *\n\n*—◉ مثال:*\n*${usedPrefix + command} @${global.suittag}*`;
   if (!who) throw m.reply(warntext, m.chat, {mentions: conn.parseMention(warntext)});
   if (m.mentionedJid.includes(conn.user.jid)) return;
   if (user.warn == 0) throw '*[❗] المستخدم عنده 0 تحذير*';
