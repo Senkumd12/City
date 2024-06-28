@@ -16,27 +16,27 @@ handler.before = async function(m) {
       room.status = 'play';
       room.asal = m.chat;
       clearTimeout(room.waktu);
-      const textplay = `🎮 حجره - ورقه - مقص 🎮\n\n—◉ تبدأ اللعبة ، تم إرسال الخيارات إلى الدردشات الخاصة لـ @${room.p.split`@`[0]} و @${room.p2.split`@`[0]}\n\n◉ حدد خيارا في الدردشات الخاصة بك,على التوالي\n*◉ اختر الخيار في wa.me/${conn.user.jid.split`@`[0]}*`;
+      const textplay = `🎮 حجرة - ورقة - مقص 🎮\n\n—◉ تبدأ اللعبة ، تم إرسال الخيارات إلى الدردشات الخاصة لـ @${room.p.split`@`[0]} و @${room.p2.split`@`[0]}\n\n◉ حدد خيارا في الدردشات الخاصة بك,على التوالي\n*◉ اختر الخيار في wa.me/${conn.user.jid.split`@`[0]}*`;
       m.reply(textplay, m.chat, {mentions: this.parseMention(textplay)});
       const comienzop = `يرجى تحديد أحد الخيارات التالية
-حجره
-ورقه
-مقص\nكاسب +${room.poin}نقطه\nخاسر ${room.poin_lose}نقطه\n*قم بالرد على الرسالة بالخيار الذي تريده*
+حجرة
+ورقة
+مقص\nكاسب +${room.poin}نقطه\nخاسر ${room.poin_lose}نقطة\n*قم بالرد على الرسالة بالخيار الذي تريده*
 *مثال: ورقه*`;
       const comienzop2 = `يرجى تحديد أحد الخيارات التالية
-حجره
-ورقه
-مقص\nكاسب +${room.poin}نقطه\nخاسر ${room.poin_lose}نقطه\n*قم بالرد على الرسالة بالخيار الذي تريده*
-*مثال: ورقه*`;
+حجرة
+ورقة
+مقص\nكاسب +${room.poin}نقطه\nخاسر ${room.poin_lose}نقطة\n*قم بالرد على الرسالة بالخيار الذي تريده*
+*مثال: ورقة*`;
 
       if (!room.pilih) this.sendMessage(room.p, {text: comienzop}, {quoted: m});
       if (!room.pilih2) this.sendMessage(room.p2, {text: comienzop2}, {quoted: m});
       room.waktu_milih = setTimeout(() => {
-        const iniciativa = `[❗]لم  يبادر أي لاعب بإملاء اللعبة تم إلغاء اللعبه`;
+        const iniciativa = `[❕]لم  يبادر أي لاعب بإملاء اللعبة - تم إلغاء اللعبة`;
         if (!room.pilih && !room.pilih2) this.sendMessage(m.chat, {text: iniciativa}, {quoted: m});
         else if (!room.pilih || !room.pilih2) {
           win = !room.pilih ? room.p2 : room.p;
-          const textnull = `*[❗] @${(room.pilih ? room.p2 : room.p).split`@`[0]}لم تختر أي خيار نهاية برنامج المكافآت الموصى به*`;
+          const textnull = `*[❕] @${(room.pilih ? room.p2 : room.p).split`@`[0]}لم تختر أي خيار نهاية برنامج المكافآت الموصى به*`;
           this.sendMessage(m.chat, {text: textnull}, {quoted: m}, {mentions: this.parseMention(textnull)});
           db.data.users[win == room.p ? room.p : room.p2].exp += room.poin;
           db.data.users[win == room.p ? room.p : room.p2].exp += room.poin_bot;
@@ -76,9 +76,9 @@ handler.before = async function(m) {
       else if (k.test(stage) && g.test(stage2)) win = room.p2;
       else if (stage == stage2) tie = true;
       this.reply(room.asal, `
-*👑 نتائج التحدي 👑*${tie ? '\n*—◉ الربط !!*' : ''}
-*@${room.p.split`@`[0]} (${room.text})* ${tie ? '' : room.p == win ? ` *الفائز 🥳 +${room.poin}نقطه*` : `الخاسر * 🤡 ${room.poin_lose}نقطه*`}
-*@${room.p2.split`@`[0]} (${room.text2})* ${tie ? '' : room.p2 == win ? ` *الفائز 🥳 +${room.poin}نقطه*` : ` *الخاسر 🤡 ${room.poin_lose}نقطه*`}
+*🧧 نتائج التحدي 🧧*${tie ? '\n*—◉ الربط !!*' : ''}
+*@${room.p.split`@`[0]} (${room.text})* ${tie ? '' : room.p == win ? ` *الفائز 🧧 +${room.poin}نقطة*` : `الخاسر * 🎗 ${room.poin_lose}نقطة*`}
+*@${room.p2.split`@`[0]} (${room.text2})* ${tie ? '' : room.p2 == win ? ` *الفائز 🧧 +${room.poin}نقطة*` : ` *الخاسر 🎗 ${room.poin_lose}نقطة*`}
 `.trim(), m, {mentions: [room.p, room.p2]} );
       if (!tie) {
         db.data.users[win == room.p ? room.p : room.p2].exp += room.poin;
