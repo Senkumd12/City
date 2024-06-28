@@ -1,10 +1,10 @@
 let handler = async (m, { conn }) => {
   let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-  let videoUrl = 'https://telegra.ph/file/c1f3adc59818e62a90a8f.mp4'
+  let imageUrl = 'https://telegra.ph/file/f1334b3a8c962d9fa5b90.png'
   let { name } = global.db.data.users[who]
 m.react('📥')
 let str = `                  ✥━─━⌬ 𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧  ⌬━─━✥
-【..≼قــســم التحميلات≽..】
+*【..≼قــســم التحميلات≽..】*
                    ⋄━───═◞⬪⋇⬪◟═───━⋄
 
 *📖🕯⤺┇〘فيديو〙*
