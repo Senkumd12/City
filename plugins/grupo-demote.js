@@ -8,8 +8,8 @@ var number = text.split`@`[1]
 var number = text
 }
 
-if (!text && !m.quoted) return conn.reply(m.chat, `🎌 *ضع منشن للمشرف الذي تريد تنزيليه*\n\nمثال, !خفض @منشن\n!خفض *الرد ع رساله*`, m, fake, )
-if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `🚩 *رقم غير صحيح*`, m, fake, )
+if (!text && !m.quoted) return conn.reply(m.chat, `❕ *ضع منشن للمشرف*\n\nمثال, !خفض @منشن\n!خفض *الرد على رسالة*`, m, fake, )
+if (number.length > 13 || (number.length < 11 && number.length > 0)) return conn.reply(m.chat, `❕ *رقم غير صحيح*`, m, fake, )
   
 try {
 if (text) {
@@ -22,7 +22,7 @@ var user = number + '@s.whatsapp.net'
 } catch (e) {
 } finally {
 conn.groupParticipantsUpdate(m.chat, [user], 'demote')
-conn.reply(m.chat, `🚯 *تبآ لك كنت ادمن فاشل*`, m, fake, )
+conn.reply(m.chat, `🪔 *لـم تـكـن مُـشـرف كـمـا تـوقـعـنـا*`, m, fake, )
 }
 
 }
