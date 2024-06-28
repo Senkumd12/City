@@ -1,27 +1,30 @@
-import fetch from 'node-fetch'
-import uploader from '../lib/uploadImage.js'
+import fetch from 'node-fetch';
+import uploader from '../lib/uploadImage.js';
 
 var handler = async (m, { conn, text, command, usedPrefix }) => {
 
-let q = m.quoted ? m.quoted : m
-let mime = (q.msg || q).mimetype || q.mediaType || ''
-if (/image/g.test(mime) && !/webp/g.test(mime)) {
-let buffer = await q.download()
+    let q = m.quoted ? m.quoted : m;
+    let mime = (q.msg || q).mimetype || q.mediaType || '';
 
-await m.reply(wait)
+    if (/image/g.test(mime) && !/webp/g.test(mime)) {
+        let buffer = await q.download();
 
-let media = await (uploader)(buffer)
-let json = await (await fetch(`https://api-darkman-3cf8c6ef66b9.herokuapp.com/googlegenai?query=}`)).json()
+        await m.reply('انتظر قليلاً...');
 
-conn.sendMessage(m.chat, { text: json.result }, { quoted: m })
+        let media = await uploader(buffer);
+        let json = await (await fetch(`https://api-darkman-3cf8c6ef66b9.herokuapp.com/googlegenai?query=${media}`)).json();
 
-} else throw `> ˼⚡˹↜ يــرجــي الـرد عــلــي الــصــورة الــتــي تــريــد تــوضــيــحــهــا\n\n> مــثــال\n${usedPrefix + command} اوصــف هــذه الــصــورة`
+        conn.sendMessage(m.chat, { text: json.result }, { quoted: m });
 
-}
-handler.help = ["S H A D O W"]
-handler.tags = ['S H A D O W']
-handler.command = /^(دحيح)$/i
+    } else {
+        throw `> ˼⚡˹↜ يــرجــي الـرد عــلــي الــصــورة الــتــي تــريــد تــوضــيــحــهــا\n\n> مــثــال\n${usedPrefix + command} اوصــف هــذه الــصــورة`;
+    }
+};
 
-handler.limit = true
+handler.help = ["S H A D O W"];
+handler.tags = ['S H A D O W'];
+handler.command = /^(دحيح)$/i;
 
-export default handler
+handler.limit = true;
+
+export default handler;
