@@ -20,8 +20,8 @@ let handler = async (m, { conn }) => {
   }, { quoted: m });
 };
 
-handler.help = ['main'];
-handler.tags = ['group'];
-handler.command = ['11'];
+handler.help = ['main']
+handler.tags = ['group']
+handler.command = ['1']
 
 export default handler;
