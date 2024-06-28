@@ -1,9 +1,9 @@
 let handler = async (m, { conn }) => {
   let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-  let imageUrl = 'https://telegra.ph/file/33dfde90b872532a79488.png'
+  let imageUrl = 'https://telegra.ph/file/2110a284535ab4c621e4f.jpg'
   let { name } = global.db.data.users[who]
-  m.react('🕋')
-  let str = `                  ✥━─━⌬ 𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧  ⌬━─━✥
+  m.react('☪')
+let str = `                  ✥━─━⌬ 𝓧𝐂𝙖𝙨𝙥𝙚𝙧𝓧  ⌬━─━✥
 *【..≼قــســم الدين≽..】*
                    ⋄━───═◞⬪⋇⬪◟═───━⋄
 *📖⤺┇〘اية_الكرسي〙*
@@ -13,11 +13,10 @@ let handler = async (m, { conn }) => {
   conn.sendMessage(m.chat, {
     image: { url: imageUrl }, 
     caption: str,
-    mentions: [who], // Assuming you want to mention the user whose data you're fetching
-    gifPlayback: true,
-    gifAttribution: 0
-  }, { quoted: m });
-};
+     mentions: [m.sender,global.conn.user.jid],
+     gifPlayback: true,gifAttribution: 0
+       }, { quoted: m });
+   };
 
 handler.help = ['main']
 handler.tags = ['group']
