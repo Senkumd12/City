@@ -21,7 +21,7 @@ let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text, isP
     let who = m.quoted ? m.quoted.sender : m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     if (!(who in global.db.data.users)) throw `✳️ المستخدم غير موجود في قاعدة البيانات`
 
-    let videoUrl = 'https://telegra.ph/file/7e9b388a0f8022dce75fc.mp4'
+    let videoUrl = 'https://telegra.ph/file/3e86a457ac12476804580.png'
     let vn = './media/menu.mp3'
     const user = global.db.data.users[m.sender]
     const { money, joincount } = global.db.data.users[m.sender]
