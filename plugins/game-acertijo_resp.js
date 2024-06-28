@@ -1,5 +1,3 @@
-
-
 import similarity from 'similarity';
 import fs from 'fs';
 import acertijoHandler from './game-acertijo.js'; // استخدام المسار النسبي الصحيح
@@ -23,8 +21,8 @@ handler.before = async function(m) {
   const duration = ((endTime - startTime) / 1000).toFixed(2); // المدة بالثواني مع تقريب عشريين
 
   if (m.text.toLowerCase() === json.response.toLowerCase().trim()) {
-    global.db.data.users[m.sender].money += this.tekateki[id][2];
-    m.reply(`إجابة صحيحة\n+${this.tekateki[id][2]} روبل\nالمدة: ${duration} ثانية`);
+    global.db.data.users[m.sender].exp += this.tekateki[id][2];
+    m.reply(`إجابة صحيحة\n+${this.tekateki[id][2]} اكسبي\nالمدة: ${duration} ثانية`);
     clearTimeout(this.tekateki[id][3]);
     delete this.tekateki[id];
 
